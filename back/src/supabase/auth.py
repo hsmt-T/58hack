@@ -12,7 +12,6 @@ def sign (email: str, password: str):
         print("SignUp error", e)
         traceback.print_exc()
         return None
-        
 
 def login (email: str, password: str):
     res = supabase.auth.sign_in_with_password({
