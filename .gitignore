@@ -1,0 +1,58 @@
+# =========================
+# OSごとの不要ファイル
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Node.js / React
+# =========================
+node_modules/
+build/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# 環境変数ファイル
+.env
+.env.local
+.env.*.local
+
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.egg
+*.egg-info/
+*.sqlite3
+
+# 仮想環境
+.venv/
+venv/
+ENV/
+env/
+
+# backend の環境変数
+back/.env
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# =========================
+# IDE / エディタ
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
