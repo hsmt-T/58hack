@@ -25,7 +25,7 @@ yarn.lock
 # =========================
 # Python
 # =========================
-__pycache__/
+back/__pycache__/
 *.pyc
 *.pyo
 *.pyd
