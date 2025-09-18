@@ -20,8 +20,8 @@ def login (email: str, password: str):
     })
     if not res.user:
         return None
-    request.session["access_token"] = res.session.access_token
-    request.session["refresh_token"] = res.session.refresh_token
-    request.session["user_id"] = res.user.id
+    # request.session["access_token"] = res.session.access_token
+    # request.session["refresh_token"] = res.session.refresh_token
+    # request.session["user_id"] = res.user.id
 
     return { "message": "ログイン成功" }
