@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException 
 from pydantic import BaseModel
-from ..supabase.auth import login, sign
+from supabase_service.auth import login, sign
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 class Login_Sign_Request(BaseModel):

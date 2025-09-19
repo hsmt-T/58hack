@@ -1,14 +1,15 @@
 from fastapi import APIRouter, HTTPException, Request
+from typing import Optional
 from pydantic import BaseModel
 router = APIRouter(prefix="/profile", tags=["profile"])
 
 class profileEditReq(BaseModel):
-    user_name: str
-    avatar_url: str
-    gender: str
-    age: int
-    comment: str
-    hobby: str 
+    user_name: Optional[str] = None
+    avatar_url: Optional[str] = None
+    gender: Optional[str] = None
+    age: Optional[int] = None
+    comment: Optional[str] = None
+    hobby: Optional[str] = None
 
 @router.get("/me")
 def profile(request: Request):
@@ -27,8 +28,15 @@ def profileEdit(request: Request, body: profileEditReq ):
     token = request.session.get("access_token")
     if not token:
         raise HTTPException(status_code=400, detail="ログインtokenがありません")
+    
     id = request.session.get("user_id")
-    res = myProfileEdit( id, body.user_name,  body.avatar_url, body.gender, body.age, body.comment, body.hobby )
+
+    data = {k: v for k, v in body.dict().items() if v is not None}
+    if not data:
+        raise HTTPException(status_code=400, detail="更新する箇所がありません")
+
+    res = myProfileEdit( id, data )
+
     if not res:
         raise HTTPException(status_code=400, detail="プロフィール変更失敗")
     return res
