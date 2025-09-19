@@ -1,4 +1,5 @@
 from .client import supabase
+from fastapi import Request
 
 def sign (email: str, password: str):
     try:
@@ -13,7 +14,7 @@ def sign (email: str, password: str):
         traceback.print_exc()
         return None
 
-def login (email: str, password: str):
+def login (email: str, password: str, request: Request):
     try:
         res = supabase.auth.sign_in_with_password({
             "email": email,
