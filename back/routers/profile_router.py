@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request
 from typing import Optional
 from pydantic import BaseModel
+from service.profile_service import myProfileGet, myProfileEdit, AllProfileGet
 router = APIRouter(prefix="/profile", tags=["profile"])
 
 class profileEditReq(BaseModel):
@@ -31,7 +32,7 @@ def profileEdit(request: Request, body: profileEditReq ):
     
     id = request.session.get("user_id")
 
-    data = {k: v for k, v in body.dict().items() if v is not None}
+    data = {k: v for k, v in body.model_dump().items() if v is not None}
     if not data:
         raise HTTPException(status_code=400, detail="更新する箇所がありません")
 
@@ -39,4 +40,12 @@ def profileEdit(request: Request, body: profileEditReq ):
 
     if not res:
         raise HTTPException(status_code=400, detail="プロフィール変更失敗")
+    return res
+
+@router.get("/")
+def allProfileGet(request: Request):
+    myId =  request.session.get("user_id")
+    res = AllProfileGet( myId )
+    if not res:
+        raise HTTPException(status_code=400, detail="全ユーザープロフィール取得失敗")
     return res
