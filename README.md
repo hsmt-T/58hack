@@ -7,7 +7,6 @@ https://58hackathon.connpass.com/event/362805/
 
 [重要]
 \58hack>
-
 git pull origin main　（main取ってくる）
 
 
