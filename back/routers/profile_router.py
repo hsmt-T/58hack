@@ -46,6 +46,6 @@ def profileEdit(request: Request, body: profileEditReq ):
 def allProfileGet(request: Request):
     myId =  request.session.get("user_id")
     res = AllProfileGet( myId )
-    if not res:
+    if res is None:   # None = 例外やDBエラー
         raise HTTPException(status_code=400, detail="全ユーザープロフィール取得失敗")
     return res
