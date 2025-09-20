@@ -24,6 +24,7 @@ export const Sign = () => {
 
             const data = await res.json();
             console.log("サインアップ成功",data);
+            navigate("/Top")
         } catch (error) {
             console.log("サインアップ失敗")
         }
@@ -32,7 +33,7 @@ export const Sign = () => {
         <div>
             <h1>新規登録</h1>
             <input type="email" value={email} required placeholder="Email" onChange={(e)=>setEmail(e.target.value)} />
-            <input type="password" value={email} required placeholder="password" onChange={(e)=>setPassword(e.target.value)}/>
+            <input type="password" value={password} required placeholder="password" onChange={(e)=>setPassword(e.target.value)}/>
             <button onClick={handleSignUp}>新規登録</button>
             <p onClick={() => navigate("/Login") }> ログインはこちら </p>
         </div>
