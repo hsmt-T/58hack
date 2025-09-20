@@ -1,9 +1,18 @@
 export const Top = () => {
   return (
     <div>
-      マッチングアプリ
-      <img src="../assets/icon.jpg" width="200" height="350"></img>
+      <img src="../../public/rabbit.png"></img>
+      <div>
+        <p>name age</p>
+        <p>comment</p>
+      </div>
+
+      {/* ボタンエリア */}
+      <div>
+        <button type="button">×</button>
+
+        <button type="button">♡</button>
+      </div>
     </div>
   );
 };
-
