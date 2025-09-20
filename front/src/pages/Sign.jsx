@@ -1,5 +1,3 @@
-import Header from "./Header";
-
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from './Header';
@@ -35,6 +33,7 @@ export const Sign = () => {
     }
     return(
         <div>
+            <Header />
             <h1 className="text-2xl py-20">ログイン画面</h1>
             <div className="py-0 flex flex-col">
                 <input 
@@ -57,7 +56,6 @@ export const Sign = () => {
                 >新規登録</button>
             </div>
             <p onClick={() => navigate("/Login") } className="text-pink-300 underline p-4"> ログインはこちら </p>
-            <Header />
             <Footer />
         </div>
     );

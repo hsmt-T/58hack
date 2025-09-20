@@ -20,9 +20,9 @@ function Footer() {
         />
         <img
           src="/guest-male.png"
-          alt="Plofile"
+          alt="Profile"
           className="w-10 h-10"
-          onClick={() => navigate("/Plofile")}
+          onClick={() => navigate("/Profile")}
         />
       </div>
     </footer>

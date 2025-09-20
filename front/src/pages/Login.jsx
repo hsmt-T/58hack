@@ -1,5 +1,3 @@
-import Header from "./Header";
-
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from './Header';
@@ -36,6 +34,7 @@ export const Login = () => {
     const navigate = useNavigate();
     return(
         <div>
+            <Header />
             <h1 className="text-2xl py-20">ログイン画面</h1>
             <div className="py-0 flex flex-col">
                 <input 
@@ -57,7 +56,6 @@ export const Login = () => {
                 >ログイン</button>
             </div>
             <p onClick={() => navigate("/") } className="text-pink-300 underline p-4"> 新規登録はこちら </p>
-            <Header />
             <Footer />
         </div>
     )
