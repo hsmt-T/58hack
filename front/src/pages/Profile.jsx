@@ -1,36 +1,39 @@
+import Header from "./Header";
+import Footer from "./Footer";
+
 import { useEffect, useState } from "react";
 
 export const Profile = () => {
-  const [profile, setProfile] = useState("")
+  const [profile, setProfile] = useState("");
   const [showModal, setShowModal] = useState(false);
-  useEffect( () => {
-    const myProfileGet = async () =>{
-      try{
-        const res =  await fetch("http://localhost:8000/profile/me", {
-        method: "GET",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+  useEffect(() => {
+    const myProfileGet = async () => {
+      try {
+        const res = await fetch("http://localhost:8000/profile/me", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        console.error("プロフィール取得失敗:", errorData);
-        return;
-      }
+        if (!res.ok) {
+          const errorData = await res.json();
+          console.error("プロフィール取得失敗:", errorData);
+          return;
+        }
 
-      const data = await res.json();
-      const myProfile = {
-        名前: data.user_name ?? "未設定",
-        avatar_url: data.avatar_url ?? '../assets/22958955.png',
-        性別: data.gender ?? "未設定",
-        年齢: data.age ?? "未設定",
-        一言: data.comment ?? "未設定",
-        趣味: data.hobby?? "未設定"
-      }
-      console.log("マイプロフィール取得成功", data);
-      setProfile(myProfile);
+        const data = await res.json();
+        const myProfile = {
+          名前: data.user_name ?? "未設定",
+          avatar_url: data.avatar_url ?? "../assets/22958955.png",
+          性別: data.gender ?? "未設定",
+          年齢: data.age ?? "未設定",
+          一言: data.comment ?? "未設定",
+          趣味: data.hobby ?? "未設定",
+        };
+        console.log("マイプロフィール取得成功", data);
+        setProfile(myProfile);
       } catch (error) {
         console.log("マイプロフィール取得失敗", error);
       }
@@ -46,7 +49,7 @@ export const Profile = () => {
 
   const profileEdit = async () => {
     try {
-      const res = await fetch("http://localhost:8000/profile/me",{
+      const res = await fetch("http://localhost:8000/profile/me", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -76,11 +79,11 @@ export const Profile = () => {
     } catch (error) {
       console.error("プロフィール更新失敗", error);
     }
-  }
-
+  };
 
   return (
     <div>
+      <Header />
       {profile ? (
         <div>
           <h3>{profile.名前} さん</h3>
@@ -92,7 +95,7 @@ export const Profile = () => {
       ) : (
         <p>読み込み中...</p>
       )}
-      <button onClick={()=> setShowModal(true)}>プロフィール変更</button>
+      <button onClick={() => setShowModal(true)}>プロフィール変更</button>
       {showModal && (
         <div
           style={{
@@ -149,12 +152,13 @@ export const Profile = () => {
               value={editHobby}
               onChange={(e) => setEditHobby(e.target.value)}
             />
-            
+
             <button onClick={profileEdit}>保存</button>
             <button onClick={() => setShowModal(false)}>閉じる</button>
           </div>
         </div>
       )}
+      <Footer />
     </div>
-  )
+  );
 };

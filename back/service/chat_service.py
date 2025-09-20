@@ -41,3 +41,9 @@ def myRooms(user_id):
         })
 
     return rooms
+
+def thisRoom(room_id):
+    res = supabase.table("matchings").select("*").eq("id",room_id).execute()
+    if res.data:
+        return res.data[0]
+    return None

@@ -1,27 +1,30 @@
+import Header from "./Header";
+
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from './Header';
 import Footer from './Footer';
 
-export const Login = () => { 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+export const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const Login  = async () => {
-        try {
-            const res = await fetch("http://localhost:8000/auth/login",{
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),credentials: "include",
-            });
+  const Login = async () => {
+    try {
+      const res = await fetch("http://localhost:8000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+        credentials: "include",
+      });
 
-            if (!res.ok) {
-                const errorData = await res.json();
-                console.log(errorData)
-                return
-            }
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.log(errorData);
+        return;
+      }
 
             const data = await res.json();
             console.log("ログイン成功",data);
