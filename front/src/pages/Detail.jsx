@@ -1,3 +1,5 @@
+import Header from "./Header";
+import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -70,6 +72,7 @@ export const Detail = () => {
   }
   return(
     <div>
+      <Header />
       {room ? (
         <div>
           <p>相手: {room.partner?.user_name ?? "名無し"}さん</p>
@@ -90,6 +93,7 @@ export const Detail = () => {
       ) : (
         <p>ルーム情報を読み込み中...</p>
       )}
+      <Footer />
     </div>
   ) 
 };
