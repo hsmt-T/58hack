@@ -8,9 +8,13 @@ from routers import rewrite
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5173",  # 開発環境# 本番 (Vercelにデプロイする場合)
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # React の URL
+    allow_origins=origins,
     allow_credentials=True,                   # Cookie を許可
     allow_methods=["*"],
     allow_headers=["*"],

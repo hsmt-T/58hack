@@ -9,7 +9,7 @@ export const Profile = () => {
   useEffect(() => {
     const myProfileGet = async () => {
       try {
-        const res = await fetch("http://localhost:8000/profile/me", {
+        const res = await fetch("https://five8hack-backend.onrender.com/profile/me", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export const Profile = () => {
 
   const profileEdit = async () => {
     try {
-      const res = await fetch("http://localhost:8000/profile/me", {
+      const res = await fetch("https://five8hack-backend.onrender.com/profile/me", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
