@@ -2,6 +2,8 @@ import Header from "./Header";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Header from './Header';
+import Footer from './Footer';
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,32 +26,39 @@ export const Login = () => {
         return;
       }
 
-      const data = await res.json();
-      console.log("ログイン成功", data);
-      navigate("/Top");
-    } catch (err) {
-      console.log("ログイン失敗", err);
+            const data = await res.json();
+            console.log("ログイン成功",data);
+            navigate("/Top")
+        } catch (err) {
+            console.log("ログイン失敗", err)
+        }
     }
-  };
-  const navigate = useNavigate();
-  return (
-    <div className="">
-      <h1>ログイン</h1>
-      <input
-        type="email"
-        value={email}
-        placeholder="Email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        value={password}
-        required
-        placeholder="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={Login}>ログイン</button>
-      <p onClick={() => navigate("/")} className=""> 新規登録はこちら </p>
-    </div>
-  );
-};
+    const navigate = useNavigate();
+    return(
+        <div>
+            <h1 className="text-2xl py-20">ログイン画面</h1>
+            <div className="py-0 flex flex-col">
+                <input 
+                    type="email" 
+                    value={email}  
+                    placeholder="Email" 
+                    onChange={(e)=>setEmail(e.target.value)} 
+                    className="border p-2 rounded"
+                />
+                <input
+                    type="password" 
+                    value={password} 
+                    required placeholder="password" 
+                    onChange={(e)=>setPassword(e.target.value)}
+                    className="border p-2 rounded"/>
+                <button 
+                    onClick={Login} 
+                    className="bg-pink-200 text-white p-4 rounded"
+                >ログイン</button>
+            </div>
+            <p onClick={() => navigate("/") } className="text-pink-300 underline p-4"> 新規登録はこちら </p>
+            <Header />
+            <Footer />
+        </div>
+    )
+}
