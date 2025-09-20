@@ -1,3 +1,11 @@
+import Footer from "./footer";
+import Header from "./header";
 export const Profile = () => {
-  return <div>プロフィール</div>;
+  return (
+  <div>
+    <Header />
+    <Footer />
+  </div>
+
+);
 };
