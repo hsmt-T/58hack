@@ -104,7 +104,6 @@ export const Top = () => {
           </button>
         </div>
       </div>
-
       <Footer />
     </div>
   );

@@ -21,12 +21,13 @@ def myProfileEdit ( id: str, data: dict ):
         traceback.print_exc()
         return None
     
-def AllProfileGet (myId: str):
+def AllProfileGet(myId: str):
     try:
-        res = supabase.table("profiles").select("*") .neq("id", myId).execute()
-        return res.data if res.data else []  
+        query = supabase.table("profiles").select("*")
+        if myId is not None:
+            query = query.neq("id", myId)
+        res = query.execute()
+        return res.data if res.data is not None else []
     except Exception as e:
-        import traceback
         print("ALLProfile Edit error", e)
-        traceback.print_exc()
         return []
