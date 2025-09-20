@@ -1,6 +1,6 @@
 import './App.css'
 import { Top } from './pages/Top'
-import { Profile } from './pages/Profile'
+import { Profile } from './pages/Profiles'
 import { Messages } from './pages/Messages'
 import { Detail } from './pages/Detail';
 import { Login } from './pages/login'
