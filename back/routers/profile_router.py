@@ -48,4 +48,4 @@ def allProfileGet(request: Request):
     res = AllProfileGet( myId )
     if res is None:   # None = 例外やDBエラー
         raise HTTPException(status_code=400, detail="全ユーザープロフィール取得失敗")
-    return res 
+    return res
