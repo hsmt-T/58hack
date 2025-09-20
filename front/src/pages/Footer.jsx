@@ -1,29 +1,17 @@
-<footer>
-    <div>
-        <p id="plofile"><img src="/front/assets/guest-male.png" /></p>
-        <p id="top"><img src="/front/assets/heart-with-mouse.png" /></p>
-        <p id="messages"><img src="/front/assets/messages-mac.png" /></p>
-    </div>
-</footer>
-
-document.getElementById("top").addEventListener("click", function() {
-    location.replace("Top.jsx");
-}, false );
-document.getElementById("messages").addEventListener("click", function() {
-    location.replace("Messages.jsx");
-}, false );
-document.getElementById("plofile").addEventListener("click", function() {
-    location.replace("Plofile.jsx");
-}, false );
-
-import React from 'react'
-import { Link } from react-rooter-dom;
+import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+    const navigate = useNavigate();
     return(
-        <footer>
-            <div>
-                <Link to = "/Plofile"></Link>
+        <footer className="fixed bottom-0 w-full left-0 bg-pink-100 py-8 px-4 rounded-b-2xl">
+            <div className='flex justify-around items-center gap-x-26'>
+                    <img src="/heart-with-mouse.png" alt="Top" className="w-14 h-14" onClick={() => navigate("/Top")} />
+                    <img src="/messages-mac.png" alt="Messages" className="w-14 h-14" onClick={() => navigate("/Messages")} />
+                    <img src="/guest-male.png" alt="Plofile" className="w-14 h-14" onClick={() => navigate("/Plofile")} />
             </div>
-    )
+        </footer>
+)
 }
+
+export default Footer;
