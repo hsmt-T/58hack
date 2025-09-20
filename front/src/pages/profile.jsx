@@ -20,6 +20,7 @@ export const Profile = () => {
         return;
       }
 
+      
       const data = await res.json();
       const myProfile = {
         名前: data.user_name ?? "未設定",
