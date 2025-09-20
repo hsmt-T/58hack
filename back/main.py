@@ -4,6 +4,7 @@ from match import match
 from starlette.middleware.sessions import SessionMiddleware
 from core.config import secret_key
 from fastapi.middleware.cors import CORSMiddleware
+from routers import rewrite
 
 app = FastAPI()
 
@@ -30,7 +31,8 @@ app.include_router(profile_router.router)
 app.include_router(chat_router.router)
 # matchルート
 app.include_router(match.router)
-
+# rewriteルート
+app.include_router(rewrite.router)
 
 @app.get("/")
 async def root():
