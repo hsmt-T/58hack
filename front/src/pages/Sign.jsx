@@ -10,7 +10,7 @@ export const Sign = () => {
 
   const handleSignUp = async () => {
     try {
-      const res = await fetch("http://localhost:8000/auth/sign", {
+      const res = await fetch("https://five8hack-backend.onrender.com/auth/sign", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

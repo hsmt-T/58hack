@@ -15,7 +15,7 @@ export const Detail = () => {
     console.log("開いたトークルームID:", room_id)
     const thisRoom = async() => {
         try{
-            const res =  await fetch(`http://localhost:8000/chat/${room_id}`, {
+            const res =  await fetch(`https://five8hack-backend.onrender.com/chat/${room_id}`, {
             method: "GET",
             headers: {
             "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export const Detail = () => {
   useEffect(()=> {
     if (!room_id) return;
 
-    const socket = new WebSocket(`ws://localhost:8000/chat/${room_id}`);
+    const socket = new WebSocket(`wss://five8hack-backend.onrender.com/chat/${room_id}`);
     setWs(socket);
 
     socket.onopen = () =>  console.log("WebSocket接続成功");

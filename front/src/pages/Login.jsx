@@ -9,7 +9,7 @@ export const Login = () => {
 
   const Login = async () => {
     try {
-      const res = await fetch("http://localhost:8000/auth/login", {
+      const res = await fetch("https://five8hack-backend.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
