@@ -23,8 +23,8 @@ app.add_middleware(
     SessionMiddleware,
     secret_key=secret_key,  # 環境変数にするのが理想
     session_cookie="session",       # Cookie の名前
-    same_site="lax",                # セキュリティ制御
-    https_only=False                # 本番は True 推奨
+    same_site="none",   # クロスサイトでも Cookie を送る
+    https_only=True
 )
 
 # authルート
