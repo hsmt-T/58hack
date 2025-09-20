@@ -1,3 +1,6 @@
+import Header from "./Header";
+import Footer from "./Footer";
+
 export const Top = () => {
   return (
     <div>
@@ -13,6 +16,8 @@ export const Top = () => {
 
         <button type="button">♡</button>
       </div>
+      <Header />
+      <Footer />
     </div>
   );
 };

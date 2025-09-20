@@ -1,28 +1,29 @@
-import React, {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+
+import React, { useState, useEffect } from "react";
 
 export function Messages() {
-  const [rooms,setRooms] = useState([])
-  const navigate = useNavigate();
+  const [rooms, setRooms] = useState([]);
 
-  useEffect(()=> {
+  useEffect(() => {
     const rooms = async () => {
       try {
-        const res = await fetch("http://localhost:8000/chat/rooms",{
+        const res = await fetch("http://localhost:8000/chat/rooms", {
           credentials: "include",
-        })
+        });
         if (!res.ok) {
-          throw new Error ("ルーム一覧取得失敗")
+          throw new Error("ルーム一覧取得失敗");
         }
         const data = await res.json();
-        console.log("APIレスポンス:", data); 
+        console.log("APIレスポンス:", data);
         setRooms(data);
       } catch (error) {
-        console.log("ルーム一覧取得エラー", error)
+        console.log("ルーム一覧取得エラー", error);
       }
     };
     rooms();
-  },[]);
+  }, []);
 
   return (
     <div>
@@ -40,6 +41,8 @@ export function Messages() {
           </div>
         ))
       )}
+      <Header />
+      <Footer />
     </div>
-  )
+  );
 }
