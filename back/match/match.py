@@ -14,15 +14,9 @@ load_dotenv()
 #CHAT_BASE_URL = os.getenv("CHAT_BASE_URL", "http://localhost:3000/chat")
 
 
+sb =supabase
 
-
-supabase
-
-
-if not SUPABASE_URL or not SUPABASE_ANON_KEY:
-    raise ValueError("SUPABASE_URL OR SUPABASE_ANON_KEY が未設定です。")
-
-if not sb:
+if not supabase:
     raise ValueError("Supabase クライアントの作成に失敗しました。")
 
 #ユーザー取得
