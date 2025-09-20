@@ -16,7 +16,7 @@ export const Top = () => {
     </div>
   );
 };
-const Top  = async () => {
+const Like  = async () => {
         try {
             const res = await fetch("http://localhost:8000/like",{
                 method: "POST",
