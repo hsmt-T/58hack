@@ -34,9 +34,10 @@ export function Messages() {
           <div
             key={room.id}
             className="bg-blue-400 border-4 border-white p-2 my-2 rounded"
+            onClick={ () => navigate(`/detail/${room.id}`)}
           >
             {/* <p>Room ID: {room.id}</p> */}
-            <p>Partner: {room.partner?.user_name ?? "名無し"}</p>
+            <p>{room.partner?.user_name ?? "名無し"}さん</p>
           </div>
         ))
       )}

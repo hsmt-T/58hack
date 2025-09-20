@@ -1,6 +1,6 @@
 from fastapi import APIRouter,  WebSocket,Request, WebSocketDisconnect
 from pydantic import BaseModel
-from service.chat_service import  websocket_broadcast,myRooms
+from service.chat_service import  websocket_broadcast,myRooms,thisRoom
 from supabase_service.client import connections
 from core.session import decode_session_cookie
 router = APIRouter(prefix="/chat", tags=["chat"])
@@ -10,10 +10,18 @@ class ChatBody(BaseModel):
     matching_id: str
     content: str
 
+class room_id(BaseModel):
+    room_id: str
+
 @router.get("/rooms")
 def detMychatroom(request: Request):
     user_id = request.session.get("user_id")
     res = myRooms(user_id)
+    return res
+
+@router.get("/{room_id}")
+def room(room_id:str):
+    res = thisRoom(room_id)
     return res
 
 @router.post("/")

@@ -17,7 +17,6 @@ function App() {
         <Link to="/Top">Top</Link> 
         <Link to="/Profile">Profile</Link>
         <Link to="/Messages">Messages</Link>
-        <Link to="/Detail">Detail</Link>
       </nav>
     {/* 開発中デバック用 */}
 
@@ -25,7 +24,7 @@ function App() {
         <Route path='/Top' element={<Top/>}/>
         <Route path='/Profile' element={<Profile/>}/>
         <Route path='/Messages' element={<Messages/>}/>
-        <Route path='/Detail' element={<Detail/>}/>
+        <Route path='/detail/:room_id' element={<Detail/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/' element={<Sign/>}/>
       </Routes>
