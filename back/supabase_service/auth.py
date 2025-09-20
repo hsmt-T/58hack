@@ -1,5 +1,6 @@
 from .client import supabase
 from fastapi import Request
+from fastapi.responses import JSONResponse
 
 def sign (email: str, password: str):
     try:
@@ -25,9 +26,21 @@ def login (email: str, password: str, request: Request):
         request.session["access_token"] = res.session.access_token
         request.session["refresh_token"] = res.session.refresh_token
         request.session["user_id"] = res.user.id
-        return { "message": "ログイン成功", "res": res }
+
+        return JSONResponse(
+            content={
+                "message": "ログイン成功",
+                "user": {
+                    "id": res.user.id,
+                    "email": res.user.email
+                }
+            }
+        )  
     except Exception as e:
         import traceback
         print("Login error", e)
         traceback.print_exc()
-        return None
+        return JSONResponse(
+            content={"message": "ログイン失敗"},
+            status_code=400
+        )
