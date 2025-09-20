@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException 
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
-from ..supabase.auth import login, sign
+from supabase_service.auth import login, sign
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 class Login_Sign_Request(BaseModel):
@@ -15,8 +15,8 @@ def sign_endpoint(req: Login_Sign_Request):
     return res
 
 @router.post("/login")
-def login_endpoint(req: Login_Sign_Request):
-    res = login(req.email, req.password)
+def login_endpoint(req: Login_Sign_Request, request: Request ):
+    res = login(req.email, req.password, request)
     if not res:
         raise HTTPException(status_code=401, detail="ログイン失敗")
     return res
