@@ -83,6 +83,7 @@ export const Profile = () => {
 
   return (
     <div>
+      <Header />
       {profile ? (
         <div>
           <h3>{profile.名前} さん</h3>
@@ -157,7 +158,6 @@ export const Profile = () => {
           </div>
         </div>
       )}
-      <Header />
       <Footer />
     </div>
   );
