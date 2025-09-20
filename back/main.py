@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from routers import auth_router, profile_router, chat_router
+from match import match
 from starlette.middleware.sessions import SessionMiddleware
 from core.config import secret_key
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React の URL
+    allow_origins=["*"],  # React の URL
     allow_credentials=True,                   # Cookie を許可
     allow_methods=["*"],
     allow_headers=["*"],
@@ -27,7 +28,11 @@ app.include_router(auth_router.router)
 app.include_router(profile_router.router)
 # websocketルート
 app.include_router(chat_router.router)
+# matchルート
+app.include_router(match.router)
+
 
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
