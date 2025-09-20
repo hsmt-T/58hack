@@ -1,7 +1,3 @@
-
-
-function profile () {
-    return(
-        <h1></h1>
-    )
-}
+export const Profile = () => {
+  return <div>プロフィール</div>;
+};
