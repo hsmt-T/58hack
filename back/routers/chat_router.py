@@ -10,7 +10,7 @@ class ChatBody(BaseModel):
     matching_id: str
     content: str
 
-@router.get("/room")
+@router.get("/rooms")
 def detMychatroom(request: Request):
     user_id = request.session.get("user_id")
     res = myRooms(user_id)
