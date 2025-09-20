@@ -1,5 +1,4 @@
 import Header from "./Header";
-import Footer from "./Footer";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -34,7 +33,7 @@ export const Login = () => {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="">
       <h1>ログイン</h1>
       <input
         type="email"
@@ -50,9 +49,7 @@ export const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={Login}>ログイン</button>
-      <p onClick={() => navigate("/")}> 新規登録はこちら </p>
-      <Header />
-      <Footer />
+      <p onClick={() => navigate("/")} className=""> 新規登録はこちら </p>
     </div>
   );
 };

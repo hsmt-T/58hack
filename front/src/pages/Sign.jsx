@@ -1,5 +1,4 @@
 import Header from "./Header";
-import Footer from "./Footer";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -33,7 +32,7 @@ export const Sign = () => {
     }
   };
   return (
-    <div>
+    <div className="">
       <h1>新規登録</h1>
       <input
         type="email"
@@ -52,7 +51,6 @@ export const Sign = () => {
       <button onClick={handleSignUp}>新規登録</button>
       <p onClick={() => navigate("/Login")}> ログインはこちら </p>
       <Header />
-      <Footer />
     </div>
   );
 };
