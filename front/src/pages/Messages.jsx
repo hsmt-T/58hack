@@ -9,7 +9,7 @@ export function Messages() {
   useEffect(() => {
     const rooms = async () => {
       try {
-        const res = await fetch("http://localhost:8000/chat/rooms", {
+        const res = await fetch("https://five8hack-backend.onrender.com/chat/rooms", {
           credentials: "include",
         });
         if (!res.ok) {

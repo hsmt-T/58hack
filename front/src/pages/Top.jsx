@@ -9,7 +9,7 @@ export const Top = () => {
   // profiles取得
   const fetchProfiles = async () => {
     try {
-      const res = await fetch("http://localhost:8000/profile", {
+      const res = await fetch("https://five8hack-backend.onrender.com/profile", {
         method: "GET",
         credentials: "include",
       });
@@ -32,7 +32,7 @@ export const Top = () => {
   // いいね
   const Like = async (to_user_id) => {
     try {
-      const res = await fetch("http://localhost:8000/matching/like", {
+      const res = await fetch("https://five8hack-backend.onrender.com/matching/like", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,7 +104,6 @@ export const Top = () => {
           </button>
         </div>
       </div>
-
       <Footer />
     </div>
   );

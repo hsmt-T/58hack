@@ -7,15 +7,15 @@ export const Sign = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const handleSignUp  = async () => {
-        try {
-            const res = await fetch("http://localhost:8000/auth/sign",{
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
+  const handleSignUp = async () => {
+    try {
+      const res = await fetch("https://five8hack-backend.onrender.com/auth/sign", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
             if (!res.ok) {
                 const errorData = await res.json();
