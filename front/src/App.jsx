@@ -1,9 +1,9 @@
 import './App.css'
 import { Top } from './pages/Top'
-import { Profile } from './pages/Profile'
+import { Profile } from './pages/profile'
 import { Messages } from './pages/Messages'
 import { Detail } from './pages/Detail';
-import { Login } from './pages/login'
+import { Login } from './pages/Login'
 import { Sign } from './pages/Sign'
 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -18,8 +18,6 @@ function App() {
         <Link to="/Profile">Profile</Link>
         <Link to="/Messages">Messages</Link>
         <Link to="/Detail">Detail</Link>
-        <Link to="/Login">Login</Link>
-        <Link to="/Sign">Sign</Link>
       </nav>
     {/* 開発中デバック用 */}
 
