@@ -123,12 +123,19 @@ export const Detail = () => {
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
+                className="shadow-inner rounded-lg border-0.7"
                 placeholder="メッセージを入力"
               />
-              <button onClick={sendMessage}>送信</button>
+              <button
+                onClick={sendMessage}
+                className="bg-gradient-to-r from-pink-50 to-pink-200 font-bold 
+                rounded-lg shadow-[2px_2px_0_#000000] transition-all duration-150 active:shadow-none active:translate-x-[2px] active:translae-y-[2px]"
+              >
+                送信
+              </button>
               <button
                 onClick={handleHeartClick}
-                className="ml-2 p-1 rounded-full hover:scale-110 transition"
+                className="ml-2 p-1 rounded-full shadow-[2px_2px_0_#000000] transition-all duration-150 active:shadow-none active:translate-x-[2px] active:translae-y-[2px]  hover:scale-110 transition"
                 title="AIで優しい文にする"
               >
                 <svg

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Footer() {
   const navigate = useNavigate();
   return (
-    <footer className="fixed bottom-0 w-full left-0 bg-pink-100 py-8 px-4 rounded-b-2xl">
+    <footer className="fixed bottom-0 w-full left-0 bg-gradient-to-tr from-pink-300 to-pink-100 py-8 px-4 rounded-b-2xl">
       <div className="flex justify-around items-center gap-x-26">
         <img
           src="/heart-with-mouse.png"
