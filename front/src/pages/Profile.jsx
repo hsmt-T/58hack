@@ -9,13 +9,16 @@ export const Profile = () => {
   useEffect(() => {
     const myProfileGet = async () => {
       try {
-        const res = await fetch("https://five8hack-backend.onrender.com/profile/me", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://five8hack-backend.onrender.com/profile/me",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
 
         if (!res.ok) {
           const errorData = await res.json();
@@ -30,7 +33,7 @@ export const Profile = () => {
           性別: data.gender ?? "未設定",
           年齢: data.age ?? "未設定",
           一言: data.comment ?? "未設定",
-          趣味: data.hobby ?? "未設定",
+          研究: data.hobby ?? "未設定",
         };
         console.log("マイプロフィール取得成功", data);
         setProfile(myProfile);
@@ -45,22 +48,25 @@ export const Profile = () => {
   const [editComment, setEditComment] = useState(profile?.一言 ?? "");
   const [editAge, setEditAge] = useState(profile?.年齢 ?? "");
   const [editGender, setEditGender] = useState(profile?.性別 ?? "");
-  const [editHobby, setEditHobby] = useState(profile?.趣味 ?? "");
+  const [editHobby, setEditHobby] = useState(profile?.研究 ?? "");
 
   const profileEdit = async () => {
     try {
-      const res = await fetch("https://five8hack-backend.onrender.com/profile/me", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({
-          user_name: editName,
-          comment: editComment,
-          age: editAge,
-          gender: editGender,
-          hobby: editHobby,
-        }),
-      });
+      const res = await fetch(
+        "https://five8hack-backend.onrender.com/profile/me",
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({
+            user_name: editName,
+            comment: editComment,
+            age: editAge,
+            gender: editGender,
+            hobby: editHobby,
+          }),
+        }
+      );
       if (!res.ok) {
         const errorData = await res.json();
         console.error("プロフィール更新失敗:", errorData);
@@ -72,7 +78,7 @@ export const Profile = () => {
         一言: data.comment ?? "未設定",
         年齢: data.age ?? "未設定",
         性別: data.gender ?? "未設定",
-        趣味: data.hobby ?? "未設定",
+        研究: data.hobby ?? "未設定",
       });
       setShowModal(false);
       console.log("プロフィール更新成功", data);
@@ -90,12 +96,14 @@ export const Profile = () => {
           <p>ひとこと: {profile.一言}</p>
           <p>年齢: {profile.年齢}</p>
           <p>性別: {profile.性別}</p>
-          <p>趣味: {profile.趣味}</p>
+          <p>研究: {profile.研究}</p>
         </div>
       ) : (
         <p>読み込み中...</p>
       )}
-      <button onClick={() => setShowModal(true)} className="bg-red-200 p-2">プロフィール変更</button>
+      <button onClick={() => setShowModal(true)} className="bg-red-200 p-2">
+        プロフィール変更
+      </button>
       {showModal && (
         <div
           style={{
@@ -148,7 +156,7 @@ export const Profile = () => {
             />
             <input
               type="text"
-              placeholder="趣味"
+              placeholder="研究"
               value={editHobby}
               onChange={(e) => setEditHobby(e.target.value)}
             />
