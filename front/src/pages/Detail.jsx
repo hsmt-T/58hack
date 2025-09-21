@@ -86,16 +86,17 @@ export const Detail = () => {
 
     try {
       // ここでAI APIを呼び出す
-      // const res = await fetch("YOUR_AI_API_ENDPOINT", {
-      //   method: "POST",
-      //   body: JSON.stringify({ message: input }),
-      //   headers: { "Content-Type": "application/json" },
-      // });
-      // const data = await res.json();
-      // setInput(data.corrected_message);
+      const res = await fetch("https://five8hack-backend.onrender.com/ai/rewrite", {
+        method: "POST",
+        body: JSON.stringify({ message: input }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      console.log("AI修正結果:", data);
+      setInput(data.fixed_message);
 
       // モックとして、メッセージの先頭に"AI: "を付ける
-      setInput("AI: " + input);
+      // setInput("AI: " + input);
     } catch (error) {
       console.error("AIメッセージ修正エラー", error);
     }
