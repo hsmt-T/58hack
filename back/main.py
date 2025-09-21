@@ -10,7 +10,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:5173",
-    "https://58hack-585858.vercel.app/"  # 開発環境# 本番 (Vercelにデプロイする場合)
+    "https://58hack-585858.vercel.app"  # 開発環境# 本番 (Vercelにデプロイする場合)
 ]
 
 app.add_middleware(
