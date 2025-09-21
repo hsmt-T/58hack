@@ -51,7 +51,7 @@ export const Login = () => {
                 />
                 <button 
                     onClick={Login} 
-                    className="bg-pink-200 text-white p-4 rounded"
+                    className="bg-pink-200 text-white p-4 rounded cursor-pointer transition-transform transform active:scale-95 active:bg-pink-300"
                 >ログイン</button>
             </div>
             <p onClick={() => navigate("/") } className="text-pink-300 underline p-4"> 新規登録はこちら </p>    
