@@ -13,19 +13,21 @@ origins = [
     "https://58hack-585858.vercel.app"  # 開発環境# 本番 (Vercelにデプロイする場合)
 ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,                   # Cookie を許可
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 app.add_middleware(
     SessionMiddleware,
     secret_key=secret_key,  # 環境変数にするのが理想
     session_cookie="session",       # Cookie の名前
     same_site="none",   # クロスサイトでも Cookie を送る
     https_only=True
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,                   # Cookie を許可
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # authルート
