@@ -49,6 +49,7 @@ export const Top = () => {
 
       const data = await res.json();
       console.log("いいね成功", data);
+      nextProfile();
     } catch (err) {
       console.log("いいね失敗", err);
     }
