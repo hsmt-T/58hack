@@ -70,7 +70,7 @@ export const Top = () => {
     <div className="flex flex-col items-center">
       <Header />
 
-      <div className="w-80 h-96 border p-4 my-4 flex flex-col items-center justify-between relative">
+      <div className="w-80 h-96 border p-4 my-4 mt-30 flex flex-col items-center justify-between relative">
         <img
           src={profile.avatar_url || "../../public/rabbit.png"}
           alt={profile.user_name}

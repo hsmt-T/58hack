@@ -85,8 +85,8 @@ export const Profile = () => {
     <div>
       <Header />
       {profile ? (
-        <div>
-          <h3>{profile.名前} さん</h3>
+        <div className="mt-50">
+          <h3 className="">{profile.名前} さん</h3>
           <p>ひとこと: {profile.一言}</p>
           <p>年齢: {profile.年齢}</p>
           <p>性別: {profile.性別}</p>
@@ -95,7 +95,7 @@ export const Profile = () => {
       ) : (
         <p>読み込み中...</p>
       )}
-      <button onClick={() => setShowModal(true)}>プロフィール変更</button>
+      <button onClick={() => setShowModal(true)} className="bg-red-200 p-2">プロフィール変更</button>
       {showModal && (
         <div
           style={{
