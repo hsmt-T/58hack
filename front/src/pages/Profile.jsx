@@ -96,8 +96,8 @@ export const Profile = () => {
             src="../../public/rabbit.png"
             className="h-70 w-50 mx-auto"
           ></img>
-          <div className="text-left p-4 bg-pink-100 rounded-2xl">
-            <h3 className="">プロフィール</h3>
+          <div className="text-left p-4 bg-gradient-to-r from-pink-100 to-pink-200 rounded-2xl shadow-[4px_4px_0_#000000]">
+            <h3 className="text-center">プロフィール</h3>
             <hr className="border-t-2 border-gray w-59 ml-3" />
             <p>名前: {profile.名前} さん</p>
             <hr className="border-t border-gray w-59 ml-3" />
