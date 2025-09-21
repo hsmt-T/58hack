@@ -91,17 +91,33 @@ export const Profile = () => {
     <div>
       <Header />
       {profile ? (
-        <div className="mt-50">
-          <h3 className="">{profile.名前} さん</h3>
-          <p>ひとこと: {profile.一言}</p>
-          <p>年齢: {profile.年齢}</p>
-          <p>性別: {profile.性別}</p>
-          <p>研究: {profile.研究}</p>
+        <div className="mt-20">
+          <img
+            src="../../public/rabbit.png"
+            className="h-70 w-50 mx-auto"
+          ></img>
+          <div className="text-left p-4 bg-pink-100 rounded-2xl">
+            <h3 className="">プロフィール</h3>
+            <hr className="border-t-2 border-gray w-59 ml-3" />
+            <p>名前: {profile.名前} さん</p>
+            <hr className="border-t border-gray w-59 ml-3" />
+            <p>ひとこと: {profile.一言}</p>
+            <hr className="border-t border-gray w-59 ml-3" />
+            <p>年齢: {profile.年齢}</p>
+            <hr className="border-t border-gray w-59 ml-3" />
+            <p>性別: {profile.性別}</p>
+            <hr className="border-t border-gray w-59 ml-3" />
+            <p>研究: {profile.研究}</p>
+            <hr className="border-t border-gray w-59 ml-3" />
+          </div>
         </div>
       ) : (
         <p>読み込み中...</p>
       )}
-      <button onClick={() => setShowModal(true)} className="bg-red-200 p-2">
+      <button
+        onClick={() => setShowModal(true)}
+        className="underline p-2 rounded mt-4 text-black hover:text-pink"
+      >
         プロフィール変更
       </button>
       {showModal && (

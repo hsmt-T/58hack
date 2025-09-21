@@ -1,3 +1,6 @@
+import Header from "./Header";
+import Footer from "./Footer";
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,9 +11,12 @@ export function Messages() {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await fetch("https://five8hack-backend.onrender.com/chat/rooms", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://five8hack-backend.onrender.com/chat/rooms",
+          {
+            credentials: "include",
+          }
+        );
         if (!res.ok) {
           throw new Error("ルーム一覧取得失敗");
         }
@@ -24,10 +30,10 @@ export function Messages() {
     fetchRooms();
   }, []);
 
-  
-
   return (
     <div>
+      <Header />
+      <div className="my-20"></div>
       <h2>トークルーム一覧</h2>
       {rooms.length === 0 ? (
         <p>まだルームがありません</p>
@@ -35,7 +41,7 @@ export function Messages() {
         rooms.map((room) => (
           <div
             key={room.id}
-            className="bg-blue-400 border-4 border-white p-2 my-2 rounded flex items-center justify-between"
+            className="bg-blue-400 border-4 border-white p-2 my-2 rounded flex items-center justify-between "
           >
             {/* 名前をクリックで遷移 */}
             <p
@@ -44,11 +50,10 @@ export function Messages() {
             >
               {room.partner?.user_name ?? "名無し"}さん
             </p>
-
-            
           </div>
         ))
       )}
+      <Footer />
     </div>
   );
 }
