@@ -105,7 +105,7 @@ export const Detail = () => {
     <div>
       <Header />
       {room ? (
-        <div>
+        <div className="mt-40">
           <p>相手: {room.partner?.user_name ?? "名無し"}さん</p>
           <button>AI要約</button>
           <div className="message-list">
